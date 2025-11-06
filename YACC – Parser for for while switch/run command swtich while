@@ -1,0 +1,2 @@
+bison -dy while.y && flex ctrl.l && gcc y.tab.c lex.yy.c -lfl -ly -o whilechk
+bison -dy switch.y && flex ctrl.l && gcc y.tab.c lex.yy.c -lfl -ly -o switchchk

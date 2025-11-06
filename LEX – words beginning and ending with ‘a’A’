@@ -1,0 +1,13 @@
+%{
+#include <ctype.h>
+int cnt=0;
+%}
+WORD   [A-Za-z]+
+%%
+{WORD} {
+  int n=yyleng;
+  if( (yyleng>0) && (tolower(yytext[0])=='a') && (tolower(yytext[n-1])=='a') ) cnt++;
+}
+.|\n    { }
+%%
+int main(){ yylex(); printf("Words beginning & ending with a/A: %d\n", cnt); }

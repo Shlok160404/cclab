@@ -1,0 +1,15 @@
+# Example: run the A-start counter
+cd ~/cds_lab
+nano a_start.l              # paste code
+flex a_start.l
+gcc lex.yy.c -lfl -o astart
+echo "Apple bat Ant art A aXx" > input.txt
+./astart < input.txt
+
+# Example: run a YACC program
+nano postfix.l
+nano postfix.y
+bison -dy postfix.y
+flex postfix.l
+gcc y.tab.c lex.yy.c -lfl -ly -o pfeval
+echo "2 3 + 4 *" | ./pfeval

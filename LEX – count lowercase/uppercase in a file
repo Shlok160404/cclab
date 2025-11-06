@@ -1,0 +1,9 @@
+%{
+int lc=0,uc=0;
+%}
+%%
+[a-z]+  { lc += yyleng; }
+[A-Z]+  { uc += yyleng; }
+.|\n    { }
+%%
+int main(){ yylex(); printf("Lowercase=%d Uppercase=%d\n",lc,uc); }

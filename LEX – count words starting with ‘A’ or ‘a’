@@ -1,0 +1,8 @@
+%{
+int cnt=0;
+%}
+%%
+[Aa][A-Za-z]*   { cnt++; }
+.|\n            { /* ignore others */ }
+%%
+int main(){ yylex(); printf("Words starting with A/a: %d\n", cnt); }

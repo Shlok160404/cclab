@@ -1,0 +1,4 @@
+
+
+bison -dy postfix.y && flex postfix.l && gcc y.tab.c lex.yy.c -lfl -ly -o pfeval
+echo "2 3 + 4 *" | ./pfeval

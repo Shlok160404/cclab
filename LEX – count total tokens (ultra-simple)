@@ -1,0 +1,9 @@
+%{
+int tokens=0;
+%}
+%%
+[ \t\n]+        { }
+[A-Za-z_][A-Za-z0-9_]*|[0-9]+|\"[^\"\n]*\"|\'[^\'\n]*\'|==|!=|<=|>=|&&|\|\||[+\-*/%<>=!;:,().{}[\]] { tokens++; }
+.               { tokens++; }
+%%
+int main(){ yylex(); printf("Total tokens: %d\n", tokens); }

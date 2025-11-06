@@ -1,0 +1,9 @@
+%{
+int cnt=0;
+%}
+%%
+.*com[ \t]*\n   { cnt++; }
+.*\n            { }
+.               { }
+%%
+int main(){ yylex(); printf("Lines ending with com: %d\n",cnt); }

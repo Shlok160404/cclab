@@ -1,0 +1,10 @@
+%{
+#include <stdio.h>
+int tobin(int n){ if(n/2) tobin(n/2); putchar('0'+(n%2)); return 0; }
+%}
+%%
+[0-9]+  { int n=atoi(yytext); tobin(n); }
+.|\n    { ECHO; }
+%%
+int main(){ yylex(); }
+

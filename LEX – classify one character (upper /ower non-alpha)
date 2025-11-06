@@ -4,6 +4,6 @@
 %%
 [A-Z]   { printf("UPPER\n"); }
 [a-z]   { printf("LOWER\n"); }
-.|\n    { printf("NON-ALPHA\n"); }
+.|\n    { printf("NON-ALPHA\n"); } 
 %%
 int main(){ yylex(); }

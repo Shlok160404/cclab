@@ -1,0 +1,14 @@
+%{
+#include <stdio.h>
+long acc=0; int have=0; char op='+';
+void apply(long v){ if(!have){ acc=v; have=1; return; }
+  if(op=='+') acc+=v; else if(op=='-') acc-=v; else if(op=='*') acc*=v; else if(op=='/') acc/=v; }
+%}
+%%
+[0-9]+      { apply(atol(yytext)); }
+[+\-*/]     { op=yytext[0]; }
+\n          { if(have){ printf("= %ld\n",acc); acc=0; have=0; op='+'; } }
+[ \t]+      { }
+.           { }
+%%
+int main(){ yylex(); }

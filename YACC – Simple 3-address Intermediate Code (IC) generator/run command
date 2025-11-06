@@ -1,0 +1,2 @@
+bison -dy ic.y && flex ic.l && gcc y.tab.c lex.yy.c -lfl -ly -o icgen
+echo "a+b*c" | ./icgen

@@ -1,0 +1,8 @@
+%{
+int cnt=0;
+%}
+%%
+https?://[^ \t\n]*\.org(/[^\n \t]*)?[ \t]*\n   { cnt++; }
+.|\n                                        { }
+%%
+int main(){ yylex(); printf("URLs ending with .org lines: %d\n",cnt); }

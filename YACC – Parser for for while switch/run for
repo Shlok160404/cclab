@@ -1,0 +1,2 @@
+bison -dy for.y && flex ctrl.l && gcc y.tab.c lex.yy.c -lfl -ly -o forchk
+echo "for(i=0;i<10;i=i+1) {}" | ./forchk
